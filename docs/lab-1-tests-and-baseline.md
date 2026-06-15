@@ -48,7 +48,7 @@ Prerequisites:
 
 Branches:
 
-- **First half (no tests):** `git checkout baseline-no-tests`
+- **First half (no tests):** `git checkout main` — `main` is the messy baseline and has no tests
 - **Second half (with tests):** `git checkout baseline-with-tests`
 
 Confirm the baseline runs before you start:
@@ -62,7 +62,7 @@ curl http://localhost:5080/reports/summary
 
 ## 5. What students should do
 
-1. On `baseline-no-tests`, attempt **Task A** and **Task B** with Copilot. Record metrics.
+1. On `main` (the messy baseline, no tests), attempt **Task A** and **Task B** with Copilot. Record metrics.
 2. Switch to `baseline-with-tests`, where a characterization suite already exists.
 3. Re-attempt the **same** tasks. Record metrics again.
 4. Compare the two runs and discuss.
@@ -74,9 +74,9 @@ curl http://localhost:5080/reports/summary
 
 ## 6. Step-by-step instructions
 
-### Part A — No tests (`baseline-no-tests`)
+### Part A — No tests (`main`)
 
-1. `git checkout baseline-no-tests`
+1. `git checkout main`
 2. `git checkout -b attempt/lab1-notests`
 3. Start a Copilot CLI session in the repo root.
 4. Run the **Task A** prompt (section 10). Let the agent work. Do **not** hand-hold.
