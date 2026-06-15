@@ -1,0 +1,8 @@
+[
+  { "Id": "C-1001", "Name": "Acme Retail Shopper", "Type": "Standard", "Email": "shopper@example.com" },
+  { "Id": "C-1002", "Name": "Gloria Gold", "Type": "Gold", "Email": "gloria.gold@example.com" },
+  { "Id": "C-1003", "Name": "Greg Gold", "Type": "Gold", "Email": "greg.gold@example.com" },
+  { "Id": "C-1004", "Name": "Initech Corporation", "Type": "Corporate", "Email": "ap@initech.example.com" },
+  { "Id": "C-1005", "Name": "Globex Corporation", "Type": "Corporate", "Email": "ap@globex.example.com" },
+  { "Id": "C-1006", "Name": "Penny Pincher", "Type": "Standard", "Email": "penny@example.com" }
+]

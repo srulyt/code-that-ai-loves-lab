@@ -1,0 +1,12 @@
+[
+  { "Id": "P-1", "Name": "Stainless Water Bottle", "Price": 24.00, "Fragile": false, "Category": "Kitchen" },
+  { "Id": "P-2", "Name": "Ceramic Coffee Mug", "Price": 14.50, "Fragile": true, "Category": "Kitchen" },
+  { "Id": "P-3", "Name": "Glass Vase", "Price": 39.99, "Fragile": true, "Category": "Home" },
+  { "Id": "P-4", "Name": "Wireless Mouse", "Price": 29.95, "Fragile": false, "Category": "Electronics" },
+  { "Id": "P-5", "Name": "Bluetooth Speaker", "Price": 59.00, "Fragile": false, "Category": "Electronics" },
+  { "Id": "P-6", "Name": "Crystal Wine Glasses (Set of 4)", "Price": 79.00, "Fragile": true, "Category": "Home" },
+  { "Id": "P-7", "Name": "Cotton T-Shirt", "Price": 18.00, "Fragile": false, "Category": "Apparel" },
+  { "Id": "P-8", "Name": "Hardcover Notebook", "Price": 12.00, "Fragile": false, "Category": "Office" },
+  { "Id": "P-9", "Name": "Desk Lamp", "Price": 45.00, "Fragile": true, "Category": "Office" },
+  { "Id": "P-10", "Name": "Gift Card", "Price": 50.00, "Fragile": false, "Category": "Gift" }
+]

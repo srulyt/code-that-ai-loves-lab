@@ -1,0 +1,76 @@
+[
+  {
+    "Id": "O-5001",
+    "CustomerId": "C-1002",
+    "CustomerType": "Gold",
+    "Type": "Standard",
+    "ShippingMethod": "Express",
+    "Lines": [
+      { "ProductId": "P-5", "ProductName": "Bluetooth Speaker", "UnitPrice": 59.00, "Quantity": 2, "Fragile": false },
+      { "ProductId": "P-7", "ProductName": "Cotton T-Shirt", "UnitPrice": 18.00, "Quantity": 1, "Fragile": false }
+    ],
+    "Subtotal": 136.00,
+    "DiscountAmount": 13.60,
+    "ShippingCost": 0.00,
+    "Total": 122.40,
+    "InvoiceNumber": "INV-5001",
+    "InvoiceFormat": "ConsumerStandard",
+    "Status": "Placed",
+    "CreatedUtc": "2026-05-02T10:15:00Z"
+  },
+  {
+    "Id": "O-5002",
+    "CustomerId": "C-1001",
+    "CustomerType": "Standard",
+    "Type": "Marketplace",
+    "ShippingMethod": "Standard",
+    "Lines": [
+      { "ProductId": "P-2", "ProductName": "Ceramic Coffee Mug", "UnitPrice": 14.50, "Quantity": 4, "Fragile": true }
+    ],
+    "Subtotal": 58.00,
+    "DiscountAmount": 0.00,
+    "ShippingCost": 7.95,
+    "Total": 65.95,
+    "InvoiceNumber": "INV-5002",
+    "InvoiceFormat": "ConsumerStandard",
+    "Status": "Placed",
+    "CreatedUtc": "2026-05-03T14:40:00Z"
+  },
+  {
+    "Id": "O-5003",
+    "CustomerId": "C-1004",
+    "CustomerType": "Corporate",
+    "Type": "Standard",
+    "ShippingMethod": "Standard",
+    "Lines": [
+      { "ProductId": "P-4", "ProductName": "Wireless Mouse", "UnitPrice": 29.95, "Quantity": 10, "Fragile": false },
+      { "ProductId": "P-8", "ProductName": "Hardcover Notebook", "UnitPrice": 12.00, "Quantity": 10, "Fragile": false }
+    ],
+    "Subtotal": 419.50,
+    "DiscountAmount": 41.95,
+    "ShippingCost": 0.00,
+    "Total": 377.55,
+    "InvoiceNumber": "INV-5003",
+    "InvoiceFormat": "CorporateNet30",
+    "Status": "Placed",
+    "CreatedUtc": "2026-05-04T09:05:00Z"
+  },
+  {
+    "Id": "O-5004",
+    "CustomerId": "C-1003",
+    "CustomerType": "Gold",
+    "Type": "StorePickup",
+    "ShippingMethod": "Pickup",
+    "Lines": [
+      { "ProductId": "P-6", "ProductName": "Crystal Wine Glasses (Set of 4)", "UnitPrice": 79.00, "Quantity": 1, "Fragile": true }
+    ],
+    "Subtotal": 79.00,
+    "DiscountAmount": 7.90,
+    "ShippingCost": 0.00,
+    "Total": 71.10,
+    "InvoiceNumber": "INV-5004",
+    "InvoiceFormat": "ConsumerStandard",
+    "Status": "Placed",
+    "CreatedUtc": "2026-05-06T16:20:00Z"
+  }
+]

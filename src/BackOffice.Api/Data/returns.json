@@ -1,0 +1,28 @@
+[
+  {
+    "Id": "R-9001",
+    "OrderId": "O-5002",
+    "CustomerId": "C-1001",
+    "CustomerType": "Standard",
+    "ProductId": "P-2",
+    "Quantity": 1,
+    "Reason": "Arrived chipped",
+    "Fragile": true,
+    "Status": "Approved",
+    "RefundAmount": 14.50,
+    "CreatedUtc": "2026-05-10T11:00:00Z"
+  },
+  {
+    "Id": "R-9002",
+    "OrderId": "O-5001",
+    "CustomerId": "C-1002",
+    "CustomerType": "Gold",
+    "ProductId": "P-7",
+    "Quantity": 1,
+    "Reason": "Wrong size",
+    "Fragile": false,
+    "Status": "Approved",
+    "RefundAmount": 18.00,
+    "CreatedUtc": "2026-05-12T08:30:00Z"
+  }
+]
