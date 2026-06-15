@@ -108,8 +108,7 @@ curl -X POST http://localhost:5080/orders -H "Content-Type: application/json" `
 
 ### Run the tests
 
-Tests live on `baseline-with-tests` (and later stages), **not** on the `main` / `baseline-no-tests`
-baseline:
+Tests live on `baseline-with-tests` (and later stages), **not** on the `main` baseline:
 
 ```powershell
 git checkout baseline-with-tests
@@ -178,12 +177,11 @@ Supporting material:
 
 ## Suggested branch progression
 
-The repo ships with three real branches; the rest are produced **by you** during the labs.
+The repo ships with two real branches; the rest are produced **by you** during the labs.
 
 | Branch | State | Provided? |
 |--------|-------|-----------|
-| `main` | Messy baseline (no tests) **plus all docs** — clone this | ✅ |
-| `baseline-no-tests` | Snapshot of the messy baseline code, no tests | ✅ |
+| `main` | Messy baseline (no tests) **plus all docs** — clone this; used as the Lab 1 no-tests baseline | ✅ |
 | `baseline-with-tests` | Baseline + xUnit characterization tests | ✅ |
 | `after-lab-2` | After the vertical-slice refactor | 🛠️ you create |
 | `after-lab-3` | After modeling & abstractions | 🛠️ you create |
@@ -192,8 +190,8 @@ The repo ships with three real branches; the rest are produced **by you** during
 Recommended flow:
 
 ```powershell
-# Lab 1 first half (no tests)
-git checkout baseline-no-tests
+# Lab 1 first half (no tests) — main already is the messy baseline
+git checkout main
 
 # Lab 1 second half + Labs 2-4 (tests present)
 git checkout baseline-with-tests
