@@ -92,6 +92,10 @@ dotnet test CodeThatAILoves.sln    # confirm green before you start
    threshold) and the relevant `TaskA_GiftOrderTests`. The threshold should now come from
    configuration/policy, not a literal.
 
+   > ℹ️ `TaskA_GiftOrderTests` (and `Target_threshold_is_configurable`) are **guided placeholders** holding
+   > commented-out pseudo-code, not ready-to-pass assertions. Enabling them means turning that pseudo-code
+   > into real assertions against your policies/config — removing `Skip` alone will fail.
+
 > Don't force an abstraction where there is genuinely no variation. Apply policies where the
 > business actually varies (tier, order type, shipping method, return/invoice rules).
 

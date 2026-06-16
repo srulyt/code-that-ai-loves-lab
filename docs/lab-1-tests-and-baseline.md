@@ -102,6 +102,13 @@ curl http://localhost:5080/reports/summary
 > The point is not to finish the feature perfectly — it is to **observe how differently the
 > agent behaves** when a definition of done exists.
 
+> ℹ️ **Which targets are fully specified vs guided?** The `TaskB_GoldShippingTests` include two
+> **executable** target tests (concrete expected values you only need to un-skip) plus one guided
+> placeholder (`Target_threshold_is_configurable`). The six `TaskA_GiftOrderTests` are **guided
+> placeholders**: each carries commented-out pseudo-code describing the intended arrange/act/assert and
+> a deliberately failing assertion. Implementing Task A means turning that pseudo-code into real
+> assertions (and the feature), so don't expect Task A tests to pass merely by removing `Skip`.
+
 ---
 
 ## 7. The exact task(s) for this lab
@@ -136,14 +143,58 @@ For **every** attempt, record:
 
 Concrete Task B check:
 
+> ⚠️ **Windows/PowerShell note:** in PowerShell `curl` is an alias for `Invoke-WebRequest` (different
+> argument syntax), and passing an inline single-quoted JSON body to `curl.exe` is unreliable. Use
+> `curl.exe` with the body in a file, or use `Invoke-RestMethod`. Both forms are shown below.
+
 ```powershell
 # Gold, Express, basket 177 (>150), has non-fragile item -> expect free express (shippingCost 0)
-curl -X POST http://localhost:5080/orders -H "Content-Type: application/json" `
-  -d '{"customerId":"C-1002","shippingMethod":"Express","lines":[{"productId":"P-5","quantity":3}]}'
+# P-5 (Bluetooth Speaker, 59.00, non-fragile) x3 = 177.00
+'{"type":"Standard","customerId":"C-1002","shippingMethod":"Express","lines":[{"productId":"P-5","quantity":3}]}' |
+  Out-File -Encoding ascii "$env:TEMP/orderB1.json"
+curl.exe -s -X POST http://localhost:5080/orders -H "Content-Type: application/json" --data "@$env:TEMP/orderB1.json"
 
 # Gold, Express, all-fragile basket over threshold -> after Task B expect NOT free
-curl -X POST http://localhost:5080/orders -H "Content-Type: application/json" `
-  -d '{"customerId":"C-1002","shippingMethod":"Express","lines":[{"productId":"P-6","quantity":3}]}'
+# P-6 (Crystal Wine Glasses, 79.00, fragile) x3 = 237.00
+'{"type":"Standard","customerId":"C-1002","shippingMethod":"Express","lines":[{"productId":"P-6","quantity":3}]}' |
+  Out-File -Encoding ascii "$env:TEMP/orderB2.json"
+curl.exe -s -X POST http://localhost:5080/orders -H "Content-Type: application/json" --data "@$env:TEMP/orderB2.json"
+```
+
+Equivalent with native PowerShell (no temp file):
+
+```powershell
+$body = @{ type='Standard'; customerId='C-1002'; shippingMethod='Express'
+           lines=@(@{ productId='P-5'; quantity=3 }) } | ConvertTo-Json -Depth 6
+Invoke-RestMethod -Method Post -Uri http://localhost:5080/orders -ContentType 'application/json' -Body $body
+```
+
+### Valid request reference (seed data + payloads)
+
+The JSON seed data lives in `src/BackOffice.Api/Data`. Use these IDs when crafting requests:
+
+- **Customers:** `C-1001` (Standard), `C-1002`/`C-1003` (Gold), `C-1004`/`C-1005` (Corporate),
+  `C-1006` (Standard).
+- **Products:** `P-1`..`P-10`, e.g. `P-1` Stainless Water Bottle (24.00, non-fragile),
+  `P-5` Bluetooth Speaker (59.00, non-fragile), `P-6` Crystal Wine Glasses (79.00, **fragile**).
+- **Order request fields** (`PlaceOrderRequest`): `type` (Standard / Marketplace / StorePickup /
+  CorporateGift), `customerId`, `shippingMethod` (Standard / Express / Pickup), `lines[]` of
+  `{ productId, quantity }`, and (gift only) `giftMessage` + `giftRecipients[]` of `{ name, address }`.
+
+A full **Corporate Gift** payload (Task A target shape):
+
+```json
+{
+  "type": "CorporateGift",
+  "customerId": "C-1004",
+  "shippingMethod": "Standard",
+  "lines": [{ "productId": "P-1", "quantity": 2 }],
+  "giftMessage": "Season's greetings from Initech",
+  "giftRecipients": [
+    { "name": "Alice", "address": "1 Main St" },
+    { "name": "Bob",   "address": "2 Oak Ave" }
+  ]
+}
 ```
 
 ---

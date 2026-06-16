@@ -41,6 +41,11 @@ Capture the raw numbers with `docs/metrics-prompt.md`. Then score each with the 
 > Use your **Lab 1 with-tests** run as the "baseline" reference for token/time bands. The whole
 > point is to watch these fall in Labs 2–4.
 
+> ⚠️ **If tokens/turns/tool-calls are unavailable** (common — many CLI builds don't expose them), mark
+> those rows "unavailable" per the honesty rule and score effort on **wall time** plus the **change-impact**
+> section below. Record the effort subtotal as partial (e.g. "/10 on wall time only") so the run totals
+> stay comparable. See `docs/metrics-prompt.md` → "When token/turn telemetry is unavailable."
+
 **Effort subtotal:** ___ / 30
 
 ---
