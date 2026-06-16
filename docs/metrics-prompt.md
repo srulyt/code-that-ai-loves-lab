@@ -105,3 +105,26 @@ Source: session transcript + tool-call log for the current session.
   ```
   Use these as a reliable fallback for "files written / files touched" if the session store
   cannot provide them.
+
+---
+
+## When token/turn telemetry is unavailable (read this)
+
+On many CLI builds the per-run **tokens / turns / tool-call** counts are **not exposed** by the local
+session store. When that happens, the honesty rule applies: mark those cells **"unavailable"** — never
+estimate. You can still measure effort with two always-available signals:
+
+- **Wall time** — elapsed between the first and last activity of the run.
+- **Change impact (git)** — `git diff --stat` (files touched, insertions/deletions) and the count of
+  repeated edits of the same rule. This is environment-independent and is the most trustworthy signal of
+  how "AI-friendly" each codebase stage is.
+
+**Graceful scoring path:** if tokens/turns/tool-calls are unavailable, score the AI-effort section on
+**wall time alone** and lean on the **change-impact** section for the comparison. Note in the worksheet
+that the effort subtotal is partial so totals stay comparable across stages.
+
+> ⚠️ **Shared-session contamination.** If you run several stages (or both tasks) inside **one continuous
+> agent session**, later runs benefit from the agent's memory of earlier runs, so raw wall-time/token/turn
+> figures **understate** a cold agent's cost and the lab-to-lab *effort* trend is partly learning, not code
+> quality. The **change-impact** metrics are immune to this. Prefer one fresh session per attempt; when that
+> is not possible, treat change-impact as the primary evidence and annotate the effort numbers accordingly.

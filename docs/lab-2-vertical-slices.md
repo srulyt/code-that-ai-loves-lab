@@ -81,6 +81,12 @@ dotnet test CodeThatAILoves.sln    # confirm green before you start
    Shared models (`Customer`, `Product`) can live in a small `Shared/` or `Infrastructure/`
    folder for now.
 
+   > ⚠️ **`PricingHelper` and `ShippingHelper` (and `InvoiceHelper.Format`) are dead duplicates** of
+   > rules that live in the services. This lab is structure-only, so we **move them now** to keep the
+   > refactor behaviour-preserving — but they are unused copies that **Lab 3 deletes**. Don't "tidy" or
+   > merge them here; leaving them in place keeps the experiment clean (the duplication is the thing
+   > Lab 3 removes).
+
 3. **Move one slice at a time.** Start with Returns (smallest). After each move:
    - update namespaces/usings,
    - `dotnet build`,

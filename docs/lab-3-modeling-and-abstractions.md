@@ -107,6 +107,11 @@ The modeling refactor, **plus** the two recurring tasks:
 - **Task B — Gold free express** (basket > threshold **and** ≥1 non-fragile item). With a single
   shipping rule home, this should be a one-place change plus un-skipping the tests.
 
+> ℹ️ Reminder: `TaskA_GiftOrderTests` are **guided placeholders** — each holds commented-out pseudo-code
+> describing the intended arrange/act/assert plus a failing assertion. "Enabling" them means authoring the
+> real assertions against your new model, not just removing `Skip`. Task B's two shipping target tests are
+> already concrete.
+
 ---
 
 ## 8. Suggested validation steps
