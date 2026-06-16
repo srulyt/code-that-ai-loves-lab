@@ -58,8 +58,21 @@ namespace BackOffice.Tests
         [Fact(Skip = "Task B: threshold must be configurable, not hardcoded to 150.")]
         public void Target_threshold_is_configurable()
         {
-            // After refactor the threshold should come from configuration/policy, not a literal.
-            Assert.True(false, "Replace with an assertion that reads the configured threshold.");
+            // DEFINITION OF DONE:
+            //   Today the gold free-express threshold is the literal 150 baked into ShippingService
+            //   (and copied elsewhere). After the refactor it must come from configuration/policy
+            //   (e.g. AppConfig.GoldFreeExpressThreshold), so the boundary moves when config changes.
+            //
+            //   Arrange: read the configured threshold instead of assuming 150.
+            //     decimal threshold = AppConfig.GoldFreeExpressThreshold;   // <-- introduced in Lab 3/4
+            //     var nonFragile = Basket(false);
+            //   Act / Assert: just ABOVE the configured threshold -> free express; AT/below -> pays express.
+            //     Assert.Equal(0m,     _shipping.ComputeShipping("Express", "Gold", threshold + 1m, nonFragile));
+            //     Assert.Equal(19.95m, _shipping.ComputeShipping("Express", "Gold", threshold,      nonFragile));
+            //
+            //   Note: on the messy baseline there is no AppConfig.GoldFreeExpressThreshold yet, so this
+            //   stays skipped until the rule is single-homed and the threshold is read from config.
+            Assert.True(false, "Implement per the pseudo-code above once the threshold is read from config.");
         }
     }
 }
